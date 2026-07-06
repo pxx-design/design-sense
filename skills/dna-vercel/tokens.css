@@ -1,0 +1,237 @@
+/* ═══════════════════════════════════════════════════════════
+ * Design DNA · Vercel · tokens.css
+ * Version: v1.1 · 2026-07-06
+ * Source: vercel.com (reverse-engineered)
+ *
+ * 使用方式：
+ *   1. 引入这个文件：<link rel="stylesheet" href="tokens.css">
+ *   2. 或者复制 :root 部分到你的 <style> 标签内
+ *   3. 然后用 var(--xxx) 调用
+ *
+ * 字体加载（联网页面，<head> 内；离线不加，自动落 Inter → 系统字）：
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+ * ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Page surfaces ── */
+  --page-bg:        #fafafa;        /* 不是纯白 — 印刷纸底 */
+  --surface:        #ffffff;        /* 卡片表层 */
+
+  /* ── Text (gray scale 10-step) ── */
+  --text-primary:   #171717;        /* 近黑 = 强调色 = 按钮色 */
+  --text-secondary: #4d4d4d;
+  --text-tertiary:  #666666;
+  --text-quaternary:#808080;
+  --text-caption:   #7d7d7d;
+  --text-muted:     #8f8f8f;
+
+  /* ── Borders ── */
+  --border:         rgba(0,0,0,0.08);
+  --border-solid:   #ebebeb;
+  --border-strong:  rgba(0,0,0,0.14);
+
+  /* ── Accent (=text-primary，无品牌色) ── */
+  --accent:         #171717;
+  --accent-text:    #ffffff;
+  --link:           #0072f5;        /* 仅链接 + focus，不做品牌（实测 skip-link/focus） */
+
+  /* ── Gray scale 10-step（完整实测） ── */
+  --gray-100: hsl(0,0%,95%);
+  --gray-200: hsl(0,0%,92%);
+  --gray-300: hsl(0,0%,90%);
+  --gray-400: hsl(0,0%,92%);   /* 实测与 200 同值，照录 */
+  --gray-500: hsl(0,0%,79%);
+  --gray-600: hsl(0,0%,66%);
+  --gray-700: hsl(0,0%,56%);
+  --gray-800: hsl(0,0%,49%);
+  --gray-900: hsl(0,0%,30%);
+  --gray-1000:hsl(0,0%,9%);
+
+  /* ── Status colors（功能色，不做品牌表达；页面实测这 5 个）──
+     官方色板全集＝blue/red/amber/green/teal/purple/pink（vercel.com/geist/colors 确认）；
+     green/pink 页面未实测到用量——要"正常"绿点时用官方 ds-green，或直接用 teal */
+  --status-blue:    #52aeff;
+  --status-red:     #e5484d;
+  --status-teal:    #45dec5;
+  --status-amber:   #ffb224;
+  --status-purple:  #7820bc;
+
+  /* ── Code block（营销/hero 语境 = 深底 terminal；docs 语境用浅底语法色板） ── */
+  --code-bg:        #171717;        /* 代码块就是终端，用终端的墨色 */
+  --code-comment:   rgba(255,255,255,0.4);
+  --code-key:       rgba(255,255,255,0.7);
+  --code-val:       rgba(255,255,255,0.9);
+  /* docs 浅底语法色板（vercel.com 实测）：
+     keyword #bd2864 · string #297a3a · function #7820bc · value #0068d6 · string 高亮底 #cce6ff */
+
+  /* ── Radii（实测分级——页面表面 6/8，浮层 12-16，按钮 pill） ── */
+  --radius-xs:   4px;               /* 小元素/内部控件（实测 ×41） */
+  --radius-sm:   6px;               /* 卡片 / code block（实测 ×45） */
+  --radius-md:   8px;               /* 容器 / 大卡片（实测 ×11） */
+  --radius-menu: 12px;              /* 浮层 menu/modal 官方 12px（实测 menu ×3 相符；16px 是 fullscreen 的） */
+  --radius-lg:   64px;              /* large container 罕例（实测 ×6） */
+  --radius-pill: 100px;             /* 按钮 CTA（实测 ×11） */
+  --radius-tag:  9999px;            /* nav item / tag / badge（实测 ×23） */
+  /* textarea 类 24px 罕例不设 token，用时写死 */
+
+  /* ── Shadows (核心 = hairline；实测主力卡片影另带第三层 0.04 0 4px 8px，可加可不加) ── */
+  --shadow-card: rgba(0,0,0,0.08) 0px 0px 0px 1px,
+                 rgba(0,0,0,0.04) 0px 2px 2px 0px;
+  --shadow-sm:   0px 2px 2px rgba(0,0,0,0.04);
+  --shadow-ring: rgba(0,0,0,0.08) 0px 0px 0px 1px;
+  --shadow-focus: rgb(255,255,255) 0 0 0 2px, #0072f5 0 0 0 4px;  /* a11y focus（实测） */
+
+  /* ── Fonts（Geist = 真字体；Inter/JBM 兜底；中文显式落系统黑体——Geist/Inter 均无中文字形） ── */
+  --font-sans: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ── Layout ── */
+  --page-max:  1200px;
+  --header-h:  64px;
+  --gap:       24px;
+}
+
+/* ───── Base Reset ───── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-sans);
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ───── Typography Scale (with letter-spacing) ───── */
+/* 规则：字号越大收得越狠，-0.04 ~ -0.06em（西文签名；≥56px 为外推值） */
+
+.text-display { font-size: 80px; font-weight: 600; letter-spacing: -0.05em;  line-height: 1.05; } /* 外推 */
+.text-h1      { font-size: 56px; font-weight: 600; letter-spacing: -0.05em;  line-height: 1.08; } /* 外推 */
+.text-h2      { font-size: 32px; font-weight: 600; letter-spacing: -0.04em;  line-height: 1.2;  } /* 实测 -1.28px */
+.text-h3      { font-size: 24px; font-weight: 600; letter-spacing: -0.04em;  line-height: 1.3;  } /* 实测 -0.96px */
+.text-h4      { font-size: 19px; font-weight: 600; letter-spacing: -0.026em; line-height: 1.4;  } /* 外推 */
+.text-body    { font-size: 16px; font-weight: 400; letter-spacing: 0;        line-height: 1.5;  } /* 实测 0 ×831 */
+.text-small   { font-size: 14px; font-weight: 400; letter-spacing: -0.02em;  line-height: 1.5;  } /* 实测 -0.28px ×623 */
+
+/* Caption / eyebrow / label —— uppercase, letter-spacing positive
+   实测有 sans caption（Geist 12px）与 mono（footer category）两声，skill 默认 eyebrow 用 mono（标签性=mono 声） */
+.text-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.text-mono { font-family: var(--font-mono); }
+
+/* ───── CJK 适配（中文吃不了西文负字距，见 SKILL.md「中文适配」） ─────
+   html lang="zh-CN" 时自动生效；页内英文段标 lang="en" 即恢复上面的西文 DNA */
+
+.text-display:lang(zh), .text-h1:lang(zh), .text-h2:lang(zh),
+.text-h3:lang(zh), .text-h4:lang(zh) {
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+.text-small:lang(zh) { letter-spacing: 0; }
+body:lang(zh) { line-height: 1.6; }          /* 中文正文行高放宽 */
+em:lang(zh), i:lang(zh) { font-style: normal; } /* 中文不用合成斜体，强调靠字重和层级 */
+
+/* ───── Buttons ───── */
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--accent-text);
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;                     /* 实测 Button/CTA 16px w500，成高 ~40px */
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  letter-spacing: 0;                   /* 实测 button 字距 normal */
+}
+
+.btn-secondary {
+  background: var(--surface);          /* 白底实色，不是 ghost/outline */
+  color: var(--text-primary);
+  border: 1px solid var(--border-solid);
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+/* ⚠️ nav 内的按钮是实测例外：secondary 6px 圆角 / 32px 高 / 14px w500（非 pill），见 layouts.md#Nav */
+
+/* ───── Card ───── */
+
+.card {
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+}
+
+/* ───── Code block（深底 terminal 档，规格见 layouts.md#Landing） ───── */
+
+.code-block {
+  background: var(--code-bg);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.code-comment { color: var(--code-comment); }
+.code-key     { color: var(--code-key); }
+.code-val     { color: var(--code-val); }
+
+/* ───── Dot Grid Background (Hero 可选) ───── */
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ───── Container ───── */
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ───── Sticky Nav (with blur) ───── */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 75;
+  height: var(--header-h);
+  background: rgba(250,250,250,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 32px;
+}
+
+/* ───── Section Padding ───── */
+
+.section { padding: 64px 0; }
+.section--spacious { padding: 96px 0; }
+.section--compact { padding: 48px 0; }

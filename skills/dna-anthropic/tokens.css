@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════════════════════════════
+ * Design DNA · Anthropic · tokens.css
+ * Version: v1 · 2026-07-06
+ * Source: anthropic.com (computed-style 实测 1253 元素)
+ *         + 官方 anthropics/skills brand-guidelines 对答案（色 7/7 全中）
+ *
+ * 字体：真身 Anthropic Serif / Sans / Mono 是专有自有字体，不可分发。
+ * 本 skill 用官方替身（官方 brand-guidelines 给定）：
+ *   Serif 正文 = Lora（Georgia 兜底）· Sans 标题 = Poppins（Arial 兜底）
+ *   Mono = IBM Plex Mono（官方未给，取"中性偏人文"，避开程序员文化标记）
+ * 联网页面 <head> 加载（离线不加，自动落系统字，DNA 不碎）：
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+ * 中文题字另需宋体（正文不用！见 CJK 段）：Noto Serif SC w600，
+ *   全量很大——用 &text= 子集只载题字那几个字，或本地按需。
+ * ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Surface（纸，不是屏）── */
+  --ivory-light:   #faf9f5;   /* 主背景 · 暖奶油旧书纸（实测 ×320，绝不用纯白）*/
+  --ivory-medium:  #f0eee6;   /* 次级面板 */
+  --ivory-dark:    #e8e6dc;   /* 微妙面板 / 分隔 / segmented 轨道 */
+  --oat:           #e3dacc;   /* 暖燕麦面板（UI 面板底的上限，少量）*/
+  --slate-dark:    #141413;   /* 暗面板 / 墨色锚（暖黑，非纯黑）*/
+
+  /* ── Text ── */
+  --text-primary:  #141413;   /* 主文字（实测 ×543 绝对主力）*/
+  --text-secondary:#5e5d59;   /* 次要文字 / link hover（slate-light）*/
+  --text-muted:    #b0aea5;   /* 最弱文字 / 边框共用（cloud-medium ×365）*/
+  --text-on-dark:  #faf9f5;
+
+  /* ── 暖灰阶（cloud）── */
+  --cloud-light:   #d1cfc5;
+  --cloud-medium:  #b0aea5;
+  --cloud-dark:    #87867f;
+
+  /* ── Borders（1px 实线/半透明，替代阴影做分层）── */
+  --border:        rgba(20,20,19,0.3);    /* 1px solid slate/30% 主力（实测 ×10）*/
+  --border-faint:  rgba(20,20,19,0.1);    /* slate-faded-10 极淡 */
+  --border-warm:   #b0aea5;               /* cloud-medium 暖灰实线 */
+
+  /* ── Accent（橙不进控件——见 SKILL.md 红线）── */
+  --clay:          #d97757;   /* Claude 橙：产品 logo / 编辑层插画底 / 数据橙——公司站 UI 实测 0 */
+  --accent-deep:   #c6613f;   /* 深陶土（产品层唯一主动作按钮实测 ~此值）*/
+  --gold:          #eda100;   /* 公司站唯一真实渲染的饱和火花（globe ×1）*/
+  --sky:           #6a9bcc;   /* brand token，官网实测 0 渲染 */
+  --olive:         #788c5d;   /* brand token，官网实测 0 渲染 */
+
+  /* ── 颜料盒（天然染料命名 · 一盒颜料不是一张色板；不做功能色系统）── */
+  --kraft:         #d4a27f;
+  --manilla:       #ebdbbc;
+  --coral:         #ebcece;
+  --fig:           #c46686;
+  --heather:       #cbcadb;   /* 软染料 pill 实测用色（UPDATE 标签）*/
+  --cactus:        #bcd1ca;
+
+  /* ── 数据图版色（数据色 ≠ UI token，实测 19 图）── */
+  --data-orange:   #eb6834;   /* ~clay 区间；tint 阶梯 #f2a98b / #f3b094 */
+  --data-blue:     #4a90e2;   /* 比 brand sky 更饱和（实测纠正）*/
+
+  /* ── Radii（友好软，非零非大）── */
+  --radius-sm:     4px;       /* 小元素（实测 ×2）*/
+  --radius-main:   8px;       /* 主力：按钮 / 控件 / 小卡（实测 ×14）——按钮是方圆角，不是 pill */
+  --radius-large:  16px;      /* 卡片 / 大板（实测 ×5）*/
+  --radius-pill:   100vw;     /* 只给 chip / 徽章 / terminal 特例——控件一律方圆角 */
+
+  /* ── Shadow ── */
+  /* 无。box-shadow = 0（实测 shadows=[]）。层级靠暖色块明暗混排 + 1px 边框。 */
+
+  /* ── Fonts（替身栈 + CJK 宋黑分轨：中文正文落黑体，中文题字才用宋）── */
+  --font-serif:         "Lora", Georgia, "PingFang SC", "Microsoft YaHei", serif;      /* 长文正文（中文自动落黑体——官方中文界面实测用苹方，不用宋体排正文）*/
+  --font-serif-display: "Lora", "Noto Serif SC", Georgia, serif;                        /* 大题字（中文落宋，需载 Noto Serif SC w600 子集）*/
+  --font-sans:          "Poppins", -apple-system, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  --font-mono:          "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ── Spacing（奢侈留白 · 8px 制，不锁基线网格）── */
+  --section-small: 4rem;      /*  64px */
+  --section-medium:6rem;      /*  96px */
+  --section-main:  10rem;     /* 160px 主间距 */
+  --section-top:   12rem;     /* 192px page-top */
+  --section-large: 14rem;     /* 224px */
+  --reading-col:   640px;     /* 阅读列（实测两篇长文一致；~75 拉丁字符 / ~35 汉字）*/
+}
+
+/* ───── Base Reset ───── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--font-serif);          /* 正文是衬线——签名，不退让 */
+  background: var(--ivory-light);
+  color: var(--text-primary);
+  font-size: 17px;                          /* 长文阅读体实测；首页列表体 20px 分语境 */
+  line-height: 1.55;
+  font-feature-settings: "liga", "lnum", "pnum";  /* 数字 lining 等高——serif 正文也不用 oldstyle */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ───── Typography（字距温柔：只 0 / -.005em / -.02em 三档，大号 serif 微正）───── */
+
+.text-display-serif {                       /* 全页的"峰"（营销/声明大标题）*/
+  font-family: var(--font-serif-display);
+  font-size: 96px; font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .016em;                   /* 实测 96px +1.6px 微正——大字号衬线要从容不要密度 */
+}
+.text-display-sans {                        /* 企业身份 hero（权威）*/
+  font-family: var(--font-sans);
+  font-size: 60px; font-weight: 700;
+  line-height: 1.1; letter-spacing: 0;
+}
+.text-h-sans      { font-family: var(--font-sans); font-size: 24px; font-weight: 600; line-height: 1.3; letter-spacing: 0; }  /* 区/结构标题（安静节拍，恒定不喊）*/
+.text-list-h      { font-family: var(--font-sans); font-size: 16px; font-weight: 600; line-height: 1.4; }
+.text-body        { font-size: 20px; line-height: 1.4; }        /* 首页列表体 serif */
+.text-article     { font-size: 17px; line-height: 1.55; }       /* 长文阅读体 serif */
+.text-detail      { font-family: var(--font-sans); font-size: 12px; letter-spacing: -0.005em; color: var(--text-secondary); }  /* meta / 标签 */
+.text-ui          { font-family: var(--font-sans); letter-spacing: -0.02em; }  /* UI / nav 主力档（最狠仅到 -0.02em）*/
+.text-mono        { font-family: var(--font-mono); }
+
+/* ───── CJK 宋黑分轨（开关是"角色/字号"，不是"语言"）───── */
+/* 中文正文/UI = 黑体（苹方，字体栈已内建）；中文大题字 = 宋（w600，Noto Serif SC w400 偏细） */
+
+.text-display-serif:lang(zh) { font-weight: 600; letter-spacing: 0; }
+:lang(zh) { --cjk: 1; }
+body:lang(zh) { line-height: 1.7; letter-spacing: 0.018em; }   /* 黑体正文排成编辑式：行距放宽 + 微开字距 */
+em:lang(zh), i:lang(zh) { font-style: normal; }                 /* 中文不用合成斜体；强调用下划线（同一根笔）*/
+
+/* ───── 批注 · 笔（下划线——编辑式标记签名）───── */
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1.36px;        /* 实测 */
+  text-underline-offset: 3px;               /* 正文内联；nav 用 4px */
+  text-decoration-color: var(--cloud-medium);  /* 线弱于文字，不抢 */
+}
+a:hover { color: var(--text-secondary); text-decoration-color: currentColor; }
+.nav a { text-underline-offset: 4px; }
+/* 非链接强调关键词共用同一根设备：<u> 或 .mark-pen 同参数；按钮不划线 */
+.mark-pen { text-decoration: underline; text-decoration-thickness: 1.36px; text-underline-offset: 3px; text-decoration-color: var(--cloud-medium); }
+
+/* ───── 批注 · 荧光笔（颜色只住这里，绝不刷整句）───── */
+
+.tag-meta {                                  /* ① meta 文字：无底无框 */
+  font-family: var(--font-sans); font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+.chip {                                      /* ② outline chip（真组件）：pill 只在这类小件上 */
+  display: inline-block; padding: 2px 16px;
+  border: 1px solid var(--text-primary); border-radius: var(--radius-pill);
+  background: transparent; font-family: var(--font-sans); font-size: 13px;
+}
+.pill-dye {                                  /* ③ 软染料 pill：稀缺强调（NEW/UPDATE 类），不做功能色 */
+  display: inline-block; padding: 2px 10px;
+  background: var(--heather);                /* 染料任选一支，系统内一致；不用 clay（插画专用）*/
+  color: var(--text-primary);                /* slate 深字配浅染料保对比 */
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans); font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+
+/* ───── Segmented（控件级互斥切换 · 产品层实测）───── */
+/* 浅暖轨道 + 选中白片，"选中者更亮"；方圆角同按钮一族，不是胶囊，不用下划线 */
+
+.segmented {
+  display: inline-flex; padding: 3px;
+  background: var(--ivory-dark); border-radius: var(--radius-main);
+  font-family: var(--font-sans); font-size: 13px;
+}
+.segmented > * { padding: 4px 12px; border-radius: 6px; color: var(--text-secondary); cursor: pointer; }
+.segmented > .on { background: #ffffff; color: var(--text-primary); }  /* 白片是控件件，非页面底 */
+
+/* ───── Buttons（中性高对比反相；橙不参与；尺寸从上下文推）───── */
+
+.btn-primary {
+  background: var(--slate-dark); color: var(--ivory-light);
+  border: none; border-radius: var(--radius-main);   /* 8px 方圆角，不是 pill（实测纠正）*/
+  font-family: var(--font-sans); font-weight: 500; cursor: pointer;
+  text-decoration: none;                              /* 按钮不划线 */
+}
+.btn-secondary {
+  background: transparent; color: var(--text-primary);
+  border: 1px solid var(--text-primary); border-radius: var(--radius-main);
+  font-family: var(--font-sans); font-weight: 500; cursor: pointer;
+  text-decoration: none;
+}
+/* 暗面板上反相：ivory 底 / slate 字。产品层唯一主动作可用 --accent-deep（全站仅一处，见 SKILL.md）*/
+
+/* ───── Card（纸面是平的：0 阴影，明暗混排做层级）───── */
+
+.card {
+  background: var(--ivory-medium);
+  border: 1px solid var(--border-faint);
+  border-radius: var(--radius-large);
+  /* 无 box-shadow */
+}
+.card--dark {                                /* 一排里混 1 张深卡 + 2 张浅卡制造节奏；每屏至少一处墨色锚 */
+  background: var(--slate-dark); color: var(--ivory-light);
+  border-color: transparent;
+}
+.card--oat { background: var(--oat); }       /* UI 功能面板底只走中性暖阶 ivory→oat；染料不做面板底 */
+
+/* ───── 编辑式 Link List ───── */
+
+.link-list > * { border-bottom: 1px solid var(--border-faint); }
+.link-list .meta { font-family: var(--font-sans); font-size: 12px; color: var(--text-secondary); }
+
+/* ───── Nav（吸顶但不浮起：0 阴影 + 发丝下边线，无毛玻璃）───── */
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--ivory-light);
+  border-bottom: 1px solid var(--border-faint);
+  display: flex; align-items: center;
+}
+
+/* ───── Section ───── */
+
+.section        { padding: var(--section-medium) 0; }
+.section--main  { padding: var(--section-main) 0; }
+.section--top   { padding-top: var(--section-top); }
+.reading-col    { max-width: var(--reading-col); margin: 0 auto; }  /* 列块居中，列内文字永远左 ragged */
+
+/* ───── Motion（原则实测：纸不浮不视差不发光；数值为推导默认，官方未实测）───── */
+
+html.js .reveal {
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+html.js .reveal.in-view { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+}
