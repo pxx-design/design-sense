@@ -357,7 +357,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 | 写任何载体（落地页 / 长图 / slides）| [`layouts.md`](layouts.md) |
 | 写 code block / nav / footer | [`layouts.md`](layouts.md)（Landing 组件规格）|
 | 做中文页 | 本文件「中文适配」段 |
-| 用户问"为什么 Vercel 这样做" | [`reasoning.md`](reasoning.md)（手法地图 / 推理方式 / 锚点参数二分）|
+| 用户问"为什么 Vercel 这样做" | [`reasoning.md`](reasoning.md)（手法地图 / 五个反直觉决策 / 推理方式 / 锚点参数二分）|
 | 想学"如何用 Vercel 语言推导一个新场景" | [`reasoning.md`](reasoning.md)（推导示范）|
 | 做完不确定是否符合 Vercel 基因 | [`reasoning.md`](reasoning.md)（锚点参数 [语言本身]）|
 | 边界场景：用户要做 layouts.md 没覆盖的载体 | [`reasoning.md`](reasoning.md) + 用三档出口跟用户协商 |
@@ -370,7 +370,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 逆向拆解自 [vercel.com](https://vercel.com)。
 
-**Version**: v1.1 · 2026-07-06
+**Version**: v1.1.1 · 2026-07-07
 **Skill 整理**: shona · TRUE NAME STUDIO
 
+v1.1.1（2026-07）：reasoning.md 新增「五个反直觉决策」显式段——重组自推理方式段既有内容，不新增规则。
 v1.1（2026-07）：字体切换 Vercel 真字体 Geist（Google Fonts，Inter 兜底）+ 加载指引；新增中文适配段；字距改 em 口径并按实测修正；圆角分级精确化（浮层 12/16px）；新增 code block / nav / footer / 定价卡实测规格与响应式护栏。
