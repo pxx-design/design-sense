@@ -77,7 +77,7 @@ description: 为 HTML/CSS 页面注入 Anthropic「复古编辑」视觉基因�
 | **适配性带**（不擅长但能做） | 长图 / 翻页 PPT / 暗色整页 / 工具台 / 产品端放松 | 档 1 或 2 |
 | **红线外**（默认不做） | 阴影 / 渐变 / 纯白底 / sans 长文正文 / 摄影 3D / emoji / 霓虹 / SaaS feature 模块 / 逐节居中 | 档 2 或 3 |
 
-**Dark mode**：真身是 Light-first、支持 slate 暗主题反相（按钮反相值有实测：ivory 底 slate 字），但暗色全盘参数未实测——用户要暗色整页走档 2，不要临场编一套暗色板。
+**Dark mode**：**本语言不提供暗版**（2026-07 tone 级裁定：这门语言的第一材料是纸——书没有黑页；编辑层真身亦无暗版先例，产品层 CDS 暗主题是另一 register 不背书编辑气质）。用户要暗色整页 → 档 2 提示，给出口：(a) **局部暗节合法**——版记 / 章节分隔页 / 结尾 dark CTA 本来就是这门语言的墨色锚用法；(b) 整页暗刚需 → 推荐换 dna-vercel（终端语言的暗版是官方的）；(c) 用户坚持 → 档 3 明示"成品不再是 Anthropic 语言"。不要临场编暗色板。
 
 ---
 
@@ -165,6 +165,7 @@ AI 默认本能是 SaaS 营销页审美 + "AI 感"装饰。这些**全部禁止*
 ```
 
 - 离线 / CSP 禁外联 → 不加，自动落 Georgia / Arial / 系统字，DNA 不碎
+- **离线也要真字体？预装即可**（对齐官方 brand-guidelines "fonts should be pre-installed" 口径）：Lora / Poppins / IBM Plex Mono 均 OFL 免费（Google Fonts 可下载，mac 可 `brew install --cask font-lora font-poppins font-ibm-plex-mono`）——字体栈本地优先，装了自动命中，代码零改动。skill 包不内置字体文件（自包含 HTML 引不到包内文件，base64 内嵌每页 +数 MB 不做）
 - **中文题字**另需 Noto Serif SC w600（全量大——`&text=` 子集只载题字那几个字）；**中文正文不用宋**，见下面「中文适配」
 - Lora / Poppins 无中文字形：中文永远由苹方 / 雅黑渲染——栈里已显式写
 
@@ -284,7 +285,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 逆向拆解自 [anthropic.com](https://www.anthropic.com)（computed-style 实测 1253 元素 + 编辑层 / 产品层多页校准），色板经官方 [anthropics/skills brand-guidelines](https://github.com/anthropics/skills/tree/main/skills/brand-guidelines) 对答案（7/7 全中）；替身字体（Poppins / Lora）为官方 brand-guidelines 给定。
 
-**Version**: v1 · 2026-07-06
+**Version**: v1.1 · 2026-07-07（内部验证中，未发布）
 **Skill 整理**: shona · TRUE NAME STUDIO
 
+v1.1（2026-07，内部）：字体预装指引；Dark 经「夜读版」完整探索后裁定**不出**（tone：书没有黑页），维持 light-only，档 2 出口改为三选（局部暗节 / 换 dna-vercel / 档 3 明示）。
 v1（2026-07）：首发——中文宋黑分轨适配、数据图版与插画规格、tag / segmented 控件、批注双笔强调、Console 载体支持。

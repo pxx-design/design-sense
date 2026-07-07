@@ -2,7 +2,7 @@
 
 > dna-anthropic 在不同载体上的落地参数。**载体适配度和提示档的路由表只在主 SKILL.md 一份**，按那边选好章节后来这里查参数。
 > 章节：[Landing](#landing-机构官网--产品页)（原生）/ [Article](#article-长文阅读页)（原生 · 签名场景）/ [Console](#console-工具页--dashboard)（可做）/ [图版](#数据图版)（数据 + 插画）/ [Tag 与控件](#tag--标签--segmented) / [Longform](#longform-竖向长图)（档 1）/ [Slides](#slides-翻页演示)（档 2）。
-> 中文页的宋黑分轨 / 字距口径见 SKILL.md「中文适配」段。标注原则：实测值标（实测），无实测的写（推导默认）。
+> 中文页的宋黑分轨 / 字距口径见 SKILL.md「中文适配」段。标注原则：实测值标（实测），无实测的写（推导默认）。本语言不提供暗版（见 SKILL.md Dark mode——局部暗节合法，整页暗走档 2 出口）。
 
 ---
 

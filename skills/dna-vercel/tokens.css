@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
  * Design DNA · Vercel · tokens.css
- * Version: v1.1 · 2026-07-06
+ * Version: v1.2 · 2026-07-07（新增 Dark 模式覆盖块，文件尾）
  * Source: vercel.com (reverse-engineered)
  *
  * 使用方式：
@@ -187,7 +187,7 @@ em:lang(zh), i:lang(zh) { font-style: normal; } /* 中文不用合成斜体，�
 
 .code-block {
   background: var(--code-bg);
-  color: #ffffff;
+  color: rgba(255,255,255,0.9);   /* = --code-val 档；不用纯白（暗页红线同款口径，两态皆宜） */
   border-radius: var(--radius-sm);
   padding: 16px 20px;
   font-family: var(--font-mono);
@@ -235,3 +235,75 @@ em:lang(zh), i:lang(zh) { font-style: normal; } /* 中文不用合成斜体，�
 .section { padding: 64px 0; }
 .section--spacious { padding: 96px 0; }
 .section--compact { padding: 48px 0; }
+
+/* ═══════════════════════════════════════════════════════════
+ * Dark 模式（v1.2 · 2026-07-07）
+ * 来源：官方 Geist 暗值（vercel.com/geist/colors computed-style 实测），
+ *      个别无官方对应值的项标 [推导]。映射按 token 角色，非数值取反。
+ * 启用：<html data-theme="dark">。默认仍浅色（light-first）。
+ * ═══════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces —— 官方角色对：bg-200(#fafafa→#000) / bg-100(#fff→#0a0a0a)。
+     卡仍比页面亮一档，层级方向不变 */
+  --page-bg:        #000000;
+  --surface:        #0a0a0a;
+
+  /* Text —— 官方灰阶暗值；主文字 #ededed 非纯白（gray-1000=93%） */
+  --text-primary:   #ededed;
+  --text-secondary: #a1a1a1;        /* gray-900 暗值 63% */
+  --text-tertiary:  #8f8f8f;        /* gray-700，官方两态共用档 */
+  --text-quaternary:#7d7d7d;        /* gray-800，官方两态共用档 */
+  --text-caption:   #7d7d7d;
+  --text-muted:     #8f8f8f;
+
+  /* Borders —— hairline 暗版官方答案：黑 8% → 白 14%（#ffffff24） */
+  --border:         rgba(255,255,255,0.14);
+  --border-solid:   #2e2e2e;        /* gray-400 暗值 18% */
+  --border-strong:  rgba(255,255,255,0.20);  /* [推导] 白 alpha 随档加深 */
+
+  /* Accent —— 近黑强调反相为近白；行动仍是页面上最重的中性色 */
+  --accent:         #ededed;
+  --accent-text:    #0a0a0a;
+  /* --link 不变：官方 blue-700 两态同值 */
+
+  /* Gray scale 官方暗值 */
+  --gray-100: hsl(0,0%,10%);
+  --gray-200: hsl(0,0%,12%);
+  --gray-300: hsl(0,0%,16%);
+  --gray-400: hsl(0,0%,18%);
+  --gray-500: hsl(0,0%,27%);
+  --gray-600: hsl(0,0%,53%);
+  --gray-700: hsl(0,0%,56%);
+  --gray-800: hsl(0,0%,49%);
+  --gray-900: hsl(0,0%,63%);
+  --gray-1000:hsl(0,0%,93%);
+
+  /* Status colors 不换 —— 官方功能色两态同 hue（身份制跨主题成立） */
+
+  /* Code block —— 深底 terminal 在暗页升为 gray-100 面板，配 hairline 分界 */
+  --code-bg:        #1a1a1a;
+
+  /* Shadows —— 官方：ring 白 15% + 阴影压更黑更小（0 1px 2px 黑 16%） */
+  --shadow-card: rgba(255,255,255,0.145) 0px 0px 0px 1px,
+                 rgba(0,0,0,0.16) 0px 1px 2px 0px;
+  --shadow-sm:   0px 1px 2px rgba(0,0,0,0.16);
+  --shadow-ring: rgba(255,255,255,0.145) 0px 0px 0px 1px;
+  --shadow-focus: #0a0a0a 0 0 0 2px, #0072f5 0 0 0 4px;  /* 官方 focus ring 内圈随底色 */
+}
+
+/* 组件暗版微调（硬编码颜色的组件） */
+
+[data-theme="dark"] .code-block {
+  box-shadow: var(--shadow-ring);   /* 深底面板在暗页需要 hairline 分界 */
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(0,0,0,0.85);     /* [推导] 随 page-bg 映射，blur 不变 */
+}
+
+[data-theme="dark"] .dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);  /* [推导] */
+}

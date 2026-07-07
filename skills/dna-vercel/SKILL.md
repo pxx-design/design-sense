@@ -106,7 +106,7 @@ description: 为 HTML/CSS 页面注入 Vercel「工程克制」视觉基因（�
 | **适配性带**（Vercel 不擅长但能做） | 长图载体 / 翻页 PPT / sparse 密度 / 范围外动效 / 暗色整页 | 档 1 或档 2 提示 |
 | **红线外**（默认不做） | 渐变（除驯服 hero）/ 大 shadow / 衬线 / 摄影 / 多彩品牌按钮 / outline 按钮 / bounce 动效 / 页面表面中间档圆角 / emoji 装饰 / AI 营销话术 | 用户主动要 → 档 2 或档 3 提示 |
 
-**Dark mode**：Vercel 真身是 Light-first、支持暗色切换，但本 skill 只实测了浅色系。用户要暗色整页 → 走档 2 提示（暗色灰阶参数未实测，不要临场编一套）。
+**Dark mode**：Vercel 真身是 Light-first、支持暗色切换。v1.2 起暗版参数已按官方 Geist 暗值落进 tokens.css（见「Dark 模式」节）——用户要暗色整页 → **档 1 软提示后直接做**，不再档 2。
 
 **核心姿态**：dna-vercel 敢于说"这样做的话，成品就不是纯 Vercel 了"，但**绝不该说"我不做"**。永远给用户出口。
 
@@ -188,7 +188,38 @@ Geist 是 Vercel 真字体（Google Fonts 免费，OFL 开源）。联网页面�
 ```
 
 - 离线 / CSP 禁外联（如 artifact）→ 不加这行，字体栈自动落 Inter → 系统字，DNA 不碎
+- **离线也要真字体？预装即可**：Geist / Geist Mono 是 OFL 开源（Google Fonts 可下载，mac 可 `brew install --cask font-geist font-geist-mono`）——字体栈本地优先，装了自动命中，代码零改动。skill 包不内置字体文件
 - **Geist / Inter 都没有中文字形**：中文永远由 PingFang SC / Microsoft YaHei 渲染——这正是栈里显式写 CJK 的原因，也是下面「中文适配」段存在的原因
+
+---
+
+## Dark 模式（v1.2 · 参数=官方 Geist 暗值）
+
+默认浅色（light-first 不变）。用户要暗色整页 → 档 1 软提示后直接做。启用方式：`<html data-theme="dark">`，tokens.css 尾部覆盖块自动切换全部变量。
+
+**映射按 token 角色，不是数值取反**（官方自己就这么做：灰阶中段 700/800 两态共用、主文字停在 #ededed 不到纯白）：
+
+| 角色 | Light | Dark（官方 Geist 实测） |
+|---|---|---|
+| 页面底 | #fafafa | **#000000** |
+| 卡面 | #ffffff | **#0a0a0a**（卡仍比页面亮一档，层级方向不变） |
+| 主文字 / 强调 / 按钮 | #171717 | **#ededed（非纯白）** |
+| 次文字 | #4d4d4d | #a1a1a1 |
+| hairline 边框 | 黑 8% alpha | **白 14% alpha（#ffffff24）** |
+| hairline 阴影 | ring 黑 8% + 2px 黑 4% | **ring 白 15% + 1px 2px 黑 16%**（阴影靠更黑不靠更大） |
+| code block | #171717 深底 | #1a1a1a 面板 + hairline 分界 |
+| 功能色 | 7 色 | **不换 hue**（官方两态同值——身份制跨主题成立） |
+
+**Dark 专属红线**：
+
+- ❌ **纯白文字 `#fff`** —— 官方主文字是 #ededed；纯白在黑底上过曝
+- ❌ **数值取反 / `filter: invert`** —— 暗版是按角色重配的另一张表，不是浅色的负片
+- ❌ **暗底大阴影提层级** —— 层级 = 表面明度爬梯（#000 → #0a0a0a → #1a1a1a）+ 白 alpha hairline
+  暗页卡片 hover 同理：浅色档"第二层阴影扩散加深"在暗底失效——改 **ring 升档**（白 14% → 白 20%）+ translateY 照旧
+- ❌ **给品牌色 / 功能色加饱和"提亮"** —— 官方功能色两态同值，不许临场调
+- 按钮 primary 反相：#ededed 底 / #0a0a0a 字——行动仍是页面上最重的中性色，仍不用品牌色
+
+暗页里 hero 驯服渐变的 blackoutLines 遮罩填充色跟 `--page-bg` 走（#000）。中文适配、字距、圆角、动效规则与浅色完全一致。
 
 ---
 
@@ -345,6 +376,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 - [ ] eyebrow caption 用 11px uppercase letter-spacing 0.08em
 - [ ] **无 emoji 装饰**
 - [ ] **无"AI-powered" / "Revolutionary" / "Transform"** 营销话术
+- [ ] **（仅暗页）** 页面底 #000 卡面 #0a0a0a；主文字 #ededed **不是 #fff**；hairline 用白 alpha（黑 alpha 在暗底看不见）；无 invert；功能色未加饱和
 
 ---
 
@@ -370,8 +402,9 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 逆向拆解自 [vercel.com](https://vercel.com)。
 
-**Version**: v1.1.1 · 2026-07-07
+**Version**: v1.2 · 2026-07-07（内部验证中，未发布）
 **Skill 整理**: shona · TRUE NAME STUDIO
 
+v1.2（2026-07，内部）：新增 Dark 模式——tokens.css 暗覆盖块 + 映射表 + dark 红线，参数取自官方 Geist 暗值（vercel.com/geist/colors 实测）；暗色整页从档 2 降为档 1。
 v1.1.1（2026-07）：reasoning.md 新增「五个反直觉决策」显式段——重组自推理方式段既有内容，不新增规则。
 v1.1（2026-07）：字体切换 Vercel 真字体 Geist（Google Fonts，Inter 兜底）+ 加载指引；新增中文适配段；字距改 em 口径并按实测修正；圆角分级精确化（浮层 12/16px）；新增 code block / nav / footer / 定价卡实测规格与响应式护栏。
