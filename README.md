@@ -60,7 +60,7 @@ AI 时代，品味是人留在系统里的那部分。
 
 |   | 领域 | 参照品牌 | 气质 | 状态 |
 |---|------|----------|------|------|
-| ✓ | 开发者基础设施 | **Vercel** | 工程克制 · Engineered Restraint | v1.1 · 2026-07 |
+| ✓ | 开发者基础设施 | **Vercel** | 工程克制 · Engineered Restraint | v1.1.1 · 2026-07 |
 | ✓ | AI 实验室 | **Anthropic** | 复古编辑 · Vintage Editorial | v1 · 2026-07 |
 | ○ | 开发者工作台 | Linear | — | 训练中 |
 | ○ | 金融支付 | Stripe | — | 训练中 |

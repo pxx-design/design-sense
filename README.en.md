@@ -64,7 +64,7 @@ More tastes in training: razor-sharp dark, cinematic product drama, bold gradien
 
 |   | Domain                   | Brand reference | Aesthetic                        | Status         |
 |---|--------------------------|-----------------|----------------------------------|----------------|
-| ✓ | Developer infrastructure | **Vercel**      | Engineered Restraint · 工程克制  | v1.1 · 2026-07 |
+| ✓ | Developer infrastructure | **Vercel**      | Engineered Restraint · 工程克制  | v1.1.1 · 2026-07 |
 | ✓ | AI labs                  | **Anthropic**   | Vintage Editorial · 复古编辑     | v1 · 2026-07   |
 | ○ | Developer workspace      | Linear          | —                                | training       |
 | ○ | Fintech & payments       | Stripe          | —                                | training       |
