@@ -60,8 +60,8 @@ AI 时代，品味是人留在系统里的那部分。
 
 |   | 领域 | 参照品牌 | 气质 | 状态 |
 |---|------|----------|------|------|
-| ✓ | 开发者基础设施 | **Vercel** | 工程克制 · Engineered Restraint | v1.1.1 · 2026-07 |
-| ✓ | AI 实验室 | **Anthropic** | 复古编辑 · Vintage Editorial | v1 · 2026-07 |
+| ✓ | 开发者基础设施 | **Vercel** | 工程克制 · Engineered Restraint | v1.3 · 2026-07 |
+| ✓ | AI 实验室 | **Anthropic** | 复古编辑 · Vintage Editorial | v1.2 · 2026-07 |
 | ○ | 开发者工作台 | Linear | — | 训练中 |
 | ○ | 金融支付 | Stripe | — | 训练中 |
 | ○ | 高端消费 | Apple | — | 训练中 |
@@ -71,7 +71,7 @@ AI 时代，品味是人留在系统里的那部分。
 
 ## 安装与使用
 
-每个出厂的品牌都是标准的 [Claude Code](https://claude.com/claude-code) skill——四个文件，自包含：
+每个出厂的品牌都是标准的 [Claude Code](https://claude.com/claude-code) skill——五个文件，自包含：
 
 ```bash
 git clone https://github.com/pxx-design/design-sense.git
@@ -93,14 +93,15 @@ cp -r design-sense/skills/dna-anthropic ~/.claude/skills/
 
 ## 一个 skill 的构造
 
-四个文件，四个海拔：
+五个文件，五个海拔：
 
 | 文件 | 海拔 | 装什么 |
 |------|------|--------|
-| `SKILL.md` | 判断 | 红线先行、协商机制、出厂自检清单、中文适配 |
+| `SKILL.md` | 判断 | 先及格再风格（通用排版七问 + 咬合纪律）、红线先行、协商机制、出厂自检清单、中文适配 |
 | `reasoning.md` | 语言 | 文化根、反直觉决策、新场景怎么推 |
 | `layouts.md` | 参数 | 分载体规格——每个值标明实测还是推导 |
 | `tokens.css` | 实现 | 直接引用的 CSS 变量和基础组件 |
+| `specimen.md` | 校准 | 品牌原站现场带批注——「好的分配」长什么样，逐条挂实测值 |
 
 
 ---

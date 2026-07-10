@@ -64,8 +64,8 @@ More tastes in training: razor-sharp dark, cinematic product drama, bold gradien
 
 |   | Domain                   | Brand reference | Aesthetic                        | Status         |
 |---|--------------------------|-----------------|----------------------------------|----------------|
-| ✓ | Developer infrastructure | **Vercel**      | Engineered Restraint · 工程克制  | v1.1.1 · 2026-07 |
-| ✓ | AI labs                  | **Anthropic**   | Vintage Editorial · 复古编辑     | v1 · 2026-07   |
+| ✓ | Developer infrastructure | **Vercel**      | Engineered Restraint · 工程克制  | v1.3 · 2026-07 |
+| ✓ | AI labs                  | **Anthropic**   | Vintage Editorial · 复古编辑     | v1.2 · 2026-07 |
 | ○ | Developer workspace      | Linear          | —                                | training       |
 | ○ | Fintech & payments       | Stripe          | —                                | training       |
 | ○ | Premium consumer         | Apple           | —                                | training       |
@@ -77,7 +77,7 @@ More tastes in training: razor-sharp dark, cinematic product drama, bold gradien
 
 ## Install
 
-Each completed brand is a standard [Claude Code](https://claude.com/claude-code) skill — four files, self-contained:
+Each completed brand is a standard [Claude Code](https://claude.com/claude-code) skill — five files, self-contained:
 
 ```bash
 git clone https://github.com/pxx-design/design-sense.git
@@ -104,14 +104,15 @@ The skill activates and the designer reaches for that brand's training.
 
 ## Anatomy of a skill
 
-Every skill ships the same four files, at four altitudes:
+Every skill ships the same five files, at five altitudes:
 
 | File | Altitude | Carries |
 |------|----------|---------|
-| `SKILL.md` | Judgment | Red lines first, negotiation protocol, pre-flight checklist, CJK adaptation |
+| `SKILL.md` | Judgment | Baseline-before-style (seven universal typography checks + compensation discipline), red lines first, negotiation protocol, pre-flight checklist, CJK adaptation |
 | `reasoning.md` | Language | Cultural root, counter-intuitive decisions, how to derive new scenes |
 | `layouts.md` | Parameters | Per-medium specs — every value tagged *measured* or *derived* |
 | `tokens.css` | Implementation | Drop-in CSS variables and base components |
+| `specimen.md` | Calibration | Annotated scenes from the reference brand's live site — what good allocation looks like, every claim tied to a measured value |
 
 
 ---
@@ -134,7 +135,7 @@ How many distinct insights a brand carries is decided by the brand itself. Each 
 
 ### 4. Validation — cold-run tested
 
-No skill ships until a **context-free agent** — reading nothing but the four files — passes a set of design-decision probes (both shipped skills: 8/8) and builds a complete page that clears the skill's own pre-flight checklist. Consistency is machine-tested; taste is signed off by human eyes.
+No skill ships until a **context-free agent** — reading nothing but the skill files — passes a set of design-decision probes (both shipped skills: 8/8) and builds a complete page that clears the skill's own pre-flight checklist. Consistency is machine-tested; taste is signed off by human eyes.
 
 ---
 
