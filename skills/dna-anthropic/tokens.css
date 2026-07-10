@@ -81,6 +81,12 @@
   --section-top:   12rem;     /* 192px page-top */
   --section-large: 14rem;     /* 224px */
   --reading-col:   640px;     /* 阅读列（实测两篇长文一致；~75 拉丁字符 / ~35 汉字）*/
+
+  /* ── Spacing roles（间距三档 · 及格 Q2 亲密的结构化，间距禁裸值——挂这三档）──
+     三档差距要看得出；section 档直接用上面 --section-* 家族（主间距 10rem 级奢侈是签名） */
+  --gap-element: 12px;        /* 组内元素间（标题↔描述、图标↔文字） */
+  --gap-block:   40px;        /* 块与块（卡片群、条目组之间） */
+  --gap-section: var(--section-main);  /* 区段与区段（160px 主间距） */
 }
 
 /* ───── Base Reset ───── */
