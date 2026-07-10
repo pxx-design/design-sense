@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
  * Design DNA · Vercel · tokens.css
- * Version: v1.2 · 2026-07-07（新增 Dark 模式覆盖块，文件尾）
+ * Version: v1.3 · 2026-07-10（新增 --gap-* 间距三档；字阶按改版复测校订）
  * Source: vercel.com (reverse-engineered)
  *
  * 使用方式：
@@ -91,6 +91,12 @@
   --page-max:  1200px;
   --header-h:  64px;
   --gap:       24px;
+
+  /* ── Spacing roles（间距三档 · 及格 Q2 亲密的结构化，间距禁裸值——挂这三档） ──
+     三档差距要看得出；带宽内按载体调（官网实测：element 8-24 / block 32-96 / section 留白可达 276px） */
+  --gap-element: 12px;    /* 组内元素间（图标↔文字、标题↔描述） */
+  --gap-block:   48px;    /* 块与块（卡片群、组件组之间） */
+  --gap-section: 128px;   /* 区段与区段（.section 上下 padding 64+64 即此档；spacious 96+96） */
 }
 
 /* ───── Base Reset ───── */
@@ -111,15 +117,16 @@ html, body {
 }
 
 /* ───── Typography Scale (with letter-spacing) ───── */
-/* 规则：字号越大收得越狠，-0.04 ~ -0.06em（西文签名；≥56px 为外推值） */
+/* 规则：字号越大收得越狠，-0.04 ~ -0.06em（西文签名；2026-07 改版复测校订）
+   角色纪律（见 SKILL.md「角色词汇」）：.text-display 全页唯一；每屏一个第一落点；字号禁裸值 */
 
-.text-display { font-size: 80px; font-weight: 600; letter-spacing: -0.05em;  line-height: 1.05; } /* 外推 */
-.text-h1      { font-size: 56px; font-weight: 600; letter-spacing: -0.05em;  line-height: 1.08; } /* 外推 */
+.text-display { font-size: 64px; font-weight: 450; letter-spacing: -0.06em;  line-height: 1.05; } /* 2026-07 实测 hero（更大要 80px 外推，字重不加） */
+.text-h1      { font-size: 56px; font-weight: 450; letter-spacing: -0.06em;  line-height: 1.08; } /* 2026-07 实测区段标题 */
 .text-h2      { font-size: 32px; font-weight: 600; letter-spacing: -0.04em;  line-height: 1.2;  } /* 实测 -1.28px */
 .text-h3      { font-size: 24px; font-weight: 600; letter-spacing: -0.04em;  line-height: 1.3;  } /* 实测 -0.96px */
 .text-h4      { font-size: 19px; font-weight: 600; letter-spacing: -0.026em; line-height: 1.4;  } /* 外推 */
-.text-body    { font-size: 16px; font-weight: 400; letter-spacing: 0;        line-height: 1.5;  } /* 实测 0 ×831 */
-.text-small   { font-size: 14px; font-weight: 400; letter-spacing: -0.02em;  line-height: 1.5;  } /* 实测 -0.28px ×623 */
+.text-body    { font-size: 16px; font-weight: 400; letter-spacing: 0;        line-height: 1.5;  } /* 实测 0 */
+.text-small   { font-size: 14px; font-weight: 400; letter-spacing: 0;        line-height: 1.5;  } /* 2026-07 复测归零（旧版 -0.02em 可选） */
 
 /* Caption / eyebrow / label —— uppercase, letter-spacing positive
    实测有 sans caption（Geist 12px）与 mono（footer category）两声，skill 默认 eyebrow 用 mono（标签性=mono 声） */
