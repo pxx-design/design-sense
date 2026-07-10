@@ -28,7 +28,7 @@ It should teach AI how that product thinks.
 
 ## Half human, half AI
 
-This library is co-created. The AI does the extraction — twelve dimensions of measured evidence, every value traceable. The human does the judgment — what is soul and what is surface, what becomes a rule and what stays free for the AI to reason about.
+This library is co-created. The AI does the extraction — measured evidence from the live site, every value traceable. The human does the judgment — what is soul and what is surface, what becomes a rule and what stays free for the AI to reason about.
 
 In the age of AI, taste is the part of the system a human leaves behind.
 
@@ -113,34 +113,6 @@ Every skill ships the same five files, at five altitudes:
 | `tokens.css` | Implementation | Drop-in CSS variables and base components |
 | `specimen.md` | Calibration | Annotated scenes from the reference brand's live site — what good allocation looks like, every claim tied to a measured value |
 
-
----
-
-## Methodology
-
-shona builds each brand's training in four layers, in increasing levels of judgment:
-
-### 1. Evidence — machine-extracted
-
-The brand's gold-standard reference is reverse-engineered across 12 dimensions — from color systems and typography to motion language and what is deliberately absent. This is the queryable evidence base — exhaustive but not yet a philosophy.
-
-### 2. Reasoning — designer-judged
-
-shona reads the evidence and articulates the brand's actual thinking: its cultural root, what makes it different, why each parameter takes the value it does, and what it refuses to do. **Machine extraction stops here. Judgment begins.**
-
-### 3. Insight — driven by the brand, not by a template
-
-How many distinct insights a brand carries is decided by the brand itself. Each insight may fuse multiple aspects of the brand into one observation. This is how shona internalizes the brand and encodes it into a skill.
-
-### 4. Validation — cold-run tested
-
-No skill ships until a **context-free agent** — reading nothing but the skill files — passes a set of design-decision probes (both shipped skills: 8/8) and builds a complete page that clears the skill's own pre-flight checklist. Consistency is machine-tested; taste is signed off by human eyes.
-
----
-
-shona asks not just *"what is this value?"* but *"why is this value this value?"* and *"what does this brand refuse to do?"*
-
-Each new brand sharpens the polymath's training.
 
 ---
 
