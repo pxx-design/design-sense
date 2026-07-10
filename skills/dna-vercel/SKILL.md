@@ -79,7 +79,7 @@ description: 为 HTML/CSS 页面注入 Vercel「工程克制」视觉基因（�
 - 暗色极简（Linear）= 镜像专业工具使用者对 IDE/Photoshop 的记忆 · 深色制造专业感
 - **工程克制（Vercel）= 镜像开发者对终端的记忆** · 文字代码是主角，设计是精确控制
 
-详细推理框架 + 锚点参数二分 + 推导示范，见 [`reasoning.md`](reasoning.md)。
+详细推理框架 + 锚点参数二分，见 [`reasoning.md`](reasoning.md)。
 
 ---
 
@@ -452,7 +452,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 | 写 code block / nav / footer | [`layouts.md`](layouts.md)（Landing 组件规格）|
 | 做中文页 | 本文件「中文适配」段 |
 | 用户问"为什么 Vercel 这样做" | [`reasoning.md`](reasoning.md)（手法地图 / 五个反直觉决策 / 推理方式 / 锚点参数二分）|
-| 想学"如何用 Vercel 语言推导一个新场景" | [`reasoning.md`](reasoning.md)（推导示范）|
+| 想学"如何用 Vercel 语言推导一个新场景" | [`reasoning.md`](reasoning.md)（锚点参数二分——[语言本身] 不动，[品牌答案] 同逻辑推新）|
 | 做完不确定是否符合 Vercel 基因 | [`reasoning.md`](reasoning.md)（锚点参数 [语言本身]）|
 | 边界场景：用户要做 layouts.md 没覆盖的载体 | [`reasoning.md`](reasoning.md) + 用三档出口跟用户协商 |
 
