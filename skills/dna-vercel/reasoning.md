@@ -1,6 +1,6 @@
-# Reasoning · 推理框架 + 推导示范
+# Reasoning · 推理框架
 
-> 这是 dna-vercel skill 的"审美推理 + 推导示范"子文件。
+> 这是 dna-vercel skill 的"审美推理"子文件。
 > 主 SKILL.md 是规则 + 参数 + 核心审美骨架；本文件是**深度推理 + 锚点参数二分 + 用 Vercel 语言推导新场景的 worked example**。
 > AI 在需要回答"为什么 Vercel 这样做"、做边界场景判断、或推导 layouts.md 没覆盖的新载体时读本文件。
 
