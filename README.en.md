@@ -98,7 +98,6 @@ Then ask Claude:
 
 The skill activates and the designer reaches for that brand's training.
 
-**中文用户**：完整使用指南（安装、提示词模板、两套 skill 的选用对照、常见问题）见 [docs/dna-vercel-usage.zh.md](docs/dna-vercel-usage.zh.md) 与 [docs/dna-anthropic-usage.zh.md](docs/dna-anthropic-usage.zh.md)。
 
 ---
 

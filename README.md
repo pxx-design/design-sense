@@ -87,8 +87,6 @@ cp -r design-sense/skills/dna-anthropic ~/.claude/skills/
 >
 > 「请使用 dna-anthropic skill，给我做一个研究索引页。」
 
-完整中文指南（安装细节、提示词模板、两套 skill 的选用对照、常见问题）：[dna-vercel 使用说明](docs/dna-vercel-usage.zh.md) · [dna-anthropic 使用说明](docs/dna-anthropic-usage.zh.md)
-
 ---
 
 ## 一个 skill 的构造
